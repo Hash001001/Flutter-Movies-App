@@ -10,7 +10,7 @@ class MovieDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Movie Details")),
+      appBar: AppBar(title: Text("Movie Details"),titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),  backgroundColor: Colors.purple[400],),
       body: Column(
         children: [
           ExpansionTileWidget(movieData: movie, isShowReadMore: false,),

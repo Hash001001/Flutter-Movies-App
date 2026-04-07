@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
     final movies = Provider.of<MovieProviders>(context).movieList;
 
     return Scaffold(
-      appBar: AppBar(title: Text("Movies")),
+      appBar: AppBar(title: Text("Movies",), titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22), backgroundColor: Colors.purple[400],),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
