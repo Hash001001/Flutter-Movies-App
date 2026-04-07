@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MovieProviders  extends ChangeNotifier{
 
-final _moviewList = [
+var _moviewList = [
 "Movie 1",
 "Movie 2", 
 "Movie 3",
@@ -13,5 +13,9 @@ final _moviewList = [
 
 List<String> get movieList => _moviewList;
 
+void getMovies(){
+  _moviewList = movieList;
+  notifyListeners();
+}
 
 }
