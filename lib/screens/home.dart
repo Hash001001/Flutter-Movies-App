@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_app/providers/movie_providers.dart';
-import 'package:movie_app/utils/movie_parser.dart';
+import 'package:movie_app/widgets/expension_tile.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
@@ -12,8 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-@override
+  @override
   void initState() {
     Provider.of<MovieProviders>(context, listen: false).getMovies(context);
     super.initState();
@@ -21,30 +19,18 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
-  final movies = Provider.of<MovieProviders>(context).movieList;
-
+    final movies = Provider.of<MovieProviders>(context).movieList;
 
     return Scaffold(
-      appBar: AppBar(
-        title:  Text("Movies"),
-      ),
+      appBar: AppBar(title: Text("Movies")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: ListView.builder(
-            itemCount: movies.length,
-            itemBuilder: (context, index){
-            return ListTile(
-              title: Text(movies[index].Title),
-              subtitle: Text("Sub"),
-              leading: CircleAvatar(
-                child: Text(movies[index].Title[0]),
-              ),
-              trailing: Icon(Icons.arrow_drop_down),
-            
-            );
-          }),
+        child: ListView.builder(
+          itemCount: movies.length,
+          itemBuilder: (context, index) {
+            var movieData = movies[index];
+            return ExpansionTileWidget(movieData: movieData, isShowReadMore: true,);
+          },
         ),
       ),
     );
