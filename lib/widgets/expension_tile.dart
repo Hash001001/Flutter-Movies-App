@@ -49,8 +49,7 @@ class ExpansionTileWidget extends StatelessWidget {
                   ),
                 ),
 
-                if (isShowReadMore)
-                  TextButton(
+                isShowReadMore ?TextButton(
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -60,7 +59,8 @@ class ExpansionTileWidget extends StatelessWidget {
                       );
                     },
                     child: Text("Read More."),
-                  ),
+                  ): Text("")
+                  
               ],
             ),
           ),
